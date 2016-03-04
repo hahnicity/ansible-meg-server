@@ -1,0 +1,40 @@
+---
+
+- name: create skier dirs
+  file: dest={{ item }} state=directory
+  with_items:
+    - /opt/skier
+    - /etc/skier
+
+- name: clone skier
+  git:
+    repo=https://github.com/SkierPGP/Skier.git
+    dest=/opt/skier
+    version={{ skier_version }}
+
+- name: Create skier virtualenv + dependencies
+  pip:
+    virtualenv=/opt/skier/venv
+    requirements=/opt/skier/requirements.txt
+    virtualenv_python=python3.4
+
+- name: Install psycopg2
+  pip: name=psycopg2
+
+- name: Create postgres db for skier
+  postgresql_db: name=skier owner=skier
+
+- name: Create postgres db user for skier
+  postgresql_user:
+    db=skier
+    name=skier
+    password={{ skier_user_password }}
+
+- name: Generate db schema
+  command: /opt/skier/venv/bin/python3.4 /opt/skier/manager.py db upgrade chdir=/opt/skier
+
+- name: grant privileges to skier
+  postgresql_privs: db=skier roles=skier privs=ALL type=database
+
+- name: Generate autotemplates
+  shell: su root -c 'source /opt/skier/venv/bin/activate; /bin/bash /opt/skier/setup.sh /opt/skier' chdir=/opt/skier

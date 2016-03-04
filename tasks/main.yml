@@ -1,0 +1,5 @@
+---
+- name: install skier
+  include: skier.yml
+  tags:
+    - skier
