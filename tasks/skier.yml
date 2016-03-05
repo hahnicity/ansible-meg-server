@@ -30,14 +30,13 @@
 - name: Install psycopg2
   pip: name=psycopg2
 
-- name: Create postgres db for skier
-  postgresql_db: name=skier owner=skier
-
 - name: Create postgres db user for skier
   postgresql_user:
-    db=skier
     name=skier
     password={{ skier_user_password }}
+
+- name: Create postgres db for skier
+  postgresql_db: name=skier owner=skier
 
 # This echo bit is to get around a bug in ansibles yaml parsing
 - name: Generate db schema

@@ -2,9 +2,9 @@ server {
 	listen 80;
 	charset utf-8;
 
-    access_log {{ nginx_log_dir }}/skier.access.log;
+    access_log {{ nginx_log_dir }}/megserver.access.log;
 
-	location {{ skier_nginx_location }} {
-		proxy_pass http://{{ skier_gunicorn_bind_addr }};
+	location {{ megserver_nginx_location }} {
+		proxy_pass http://{{ megserver_gunicorn_bind_addr }};
 	}
 }

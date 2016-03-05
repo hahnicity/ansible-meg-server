@@ -9,7 +9,7 @@ megserver_log_dir: /var/log/megserver
 megserver_proc_user: nobody
 megserver_proc_group: nogroup
 megserver_gunicorn_bind_addr: 0.0.0.0:5001
-megserver_version: 0.1
+megserver_version: 0.1.1
 megserver_nginx_location: /megserver/
 
 nginx_log_dir: /var/log/nginx
@@ -19,7 +19,7 @@ skier_install_dir: /opt/skier
 skier_venv_dir: /opt/skier/venv
 skier_log_dir: /var/log/skier
 skier_gunicorn_bind_addr: 0.0.0.0:5000
-skier_gunicorn_is_daemon: True
+skier_gunicorn_is_daemon: False
 skier_proc_user: nobody
 skier_proc_group: nogroup
 # Point to the latest commit on master that I can vouch for

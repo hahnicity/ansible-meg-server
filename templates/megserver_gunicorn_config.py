@@ -3,6 +3,11 @@ import multiprocessing
 bind = "{{ megserver_gunicorn_bind_addr }}"
 workers = multiprocessing.cpu_count() * 2 + 1
 
+raw_env = [
+    "MEG_SERVER_CFG={{ megserver_config_dir }}/config.yml",
+    "MEG_SERVER_DEFAULT_CFG={{ megserver_install_dir }}/venv/config/config.default.yml"
+]
+
 # Choose one as appropriate.
 worker_class = "sync"
 
