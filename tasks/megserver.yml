@@ -1,0 +1,31 @@
+---
+
+- name: Install prereqs
+  apt: name=supervisor
+
+- name: Create megserver dirs
+  file: name={{ item }} state=directory
+  with_items:
+    - "{{ megserver_config_dir }}"
+    - "{{ megserver_install_dir }}"
+
+- name: Create megserver log dir
+  file: name={{ megserver_log_dir }} state=directory owner={{ megserver_proc_user }} group={{ megserver_proc_group }}
+
+- name: Create megserver virtualenv
+  pip:
+    virtualenv={{ megserver_install_dir }}/venv
+    virtualenv_python={{ python3_version }}
+    version={{ megserver_version }}
+    name=megserver
+
+- name: Setup megserver gunicorn
+  template: src=megserver_gunicorn_config.py dest={{ megserver_config_dir }}/gunicorn_config.py
+
+- name: Setup megserver supervisor config
+  template: src=megserver_supervisor.conf dest={{ meg_supervisor_config_dir }}/meg.conf
+  notify:
+    - restart megserver
+
+- name: ensure meg is loaded in supervisor
+  supervisorctl: name=megserver state=present

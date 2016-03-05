@@ -3,3 +3,8 @@
   include: skier.yml
   tags:
     - skier
+
+- name: install megserver
+  include: megserver.yml
+  tags:
+    - megserver
