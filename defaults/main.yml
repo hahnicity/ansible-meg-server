@@ -9,8 +9,8 @@ megserver_log_dir: /var/log/megserver
 megserver_proc_user: nobody
 megserver_proc_group: nogroup
 megserver_gunicorn_bind_addr: 0.0.0.0:5001
-megserver_version: 0.1.1
-megserver_nginx_location: /megserver/
+megserver_version: 0.2.1
+megserver_nginx_location: /megserver
 
 nginx_log_dir: /var/log/nginx
 skier_nginx_location: /skier/

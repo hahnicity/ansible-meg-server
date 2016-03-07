@@ -5,5 +5,7 @@ db:
   password: {{ meg_user_password }}
   database: meg
 
+meg_url_prefix: {{ megserver_nginx_location }}
+
 keyservers:
   - http://localhost/skier
