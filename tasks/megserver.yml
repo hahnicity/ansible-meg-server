@@ -24,6 +24,7 @@
     name=megserver
   notify:
     - restart megserver
+    - restart celery
 
 - name: Install psycopg2
   pip: name=psycopg2
@@ -43,19 +44,25 @@
   template: src=megserver_main_config.yml dest={{ megserver_config_dir }}/config.yml
   notify:
     - restart megserver
+    - restart celery
 
 - name: Setup megserver gunicorn
   template: src=megserver_gunicorn_config.py dest={{ megserver_config_dir }}/gunicorn_config.py
   notify:
     - restart megserver
+    - restart celery
 
 - name: Setup megserver supervisor config
   template: src=megserver_supervisor.conf dest={{ meg_supervisor_config_dir }}/meg.conf
   notify:
     - restart megserver
+    - restart celery
 
-- name: ensure meg is loaded in supervisor
-  supervisorctl: name=megserver state=present
+- name: ensure meg processes are loaded in supervisor
+  supervisorctl: name={{ item }} state=present
+  with_items:
+    - megserver
+    - megserver_celery
 
 - name: setup megserver nginx config
   template: src=megserver_nginx dest=/etc/nginx/sites-available/megserver

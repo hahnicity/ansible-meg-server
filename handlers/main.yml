@@ -8,3 +8,6 @@
 
 - name: restart megserver
   supervisorctl: name=megserver state=restarted
+
+- name: restart celery
+  supervisorctl: name=megserver_celery state=restarted

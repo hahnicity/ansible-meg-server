@@ -7,6 +7,30 @@ db:
 
 gcm_api_key: {{ megserver_gcm_api_key }}
 
+logging:
+  version: 1
+  formatters:
+    default:
+      format: '%(asctime)s - %(levelname)s - %(message)s'
+      datefmt: '%Y%m%d'
+  handlers:
+    app:
+      class: 'logging.handlers.TimedRotatingFileHandler'
+      level: 'DEBUG'
+      formatter: 'default'
+      filename: '{{ megserver_log_dir }}/megserver_app.log'
+  loggers:
+    root:
+      handlers:
+        - app
+      level: DEBUG
+      propagate: false
+    celery:
+      handlers:
+        - app
+      level: DEBUG
+      propagate: false
+
 meg_url_prefix: {{ megserver_nginx_location }}
 
 keyservers:
