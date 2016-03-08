@@ -8,8 +8,9 @@ megserver_install_dir: /opt/megserver
 megserver_log_dir: /var/log/megserver
 megserver_proc_user: nobody
 megserver_proc_group: nogroup
+megserver_gcm_api_key: XXX
 megserver_gunicorn_bind_addr: 0.0.0.0:5001
-megserver_version: 0.2.1
+megserver_version: 0.2.2
 megserver_nginx_location: /megserver
 
 nginx_log_dir: /var/log/nginx
