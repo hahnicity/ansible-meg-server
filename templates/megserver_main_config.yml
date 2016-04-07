@@ -34,4 +34,4 @@ logging:
 meg_url_prefix: {{ megserver_nginx_location }}
 
 keyservers:
-  - http://localhost/skier
+  - http://localhost:{{ skier_nginx_port }}{{ skier_nginx_location }}

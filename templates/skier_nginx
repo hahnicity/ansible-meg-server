@@ -1,5 +1,5 @@
 server {
-	listen 80;
+	listen {{ skier_nginx_port }};
 	charset utf-8;
 
     access_log {{ nginx_log_dir }}/skier.access.log;

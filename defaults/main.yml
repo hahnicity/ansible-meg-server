@@ -14,7 +14,8 @@ megserver_version: 0.2.3
 megserver_nginx_location: /megserver
 
 nginx_log_dir: /var/log/nginx
-skier_nginx_location: /skier/
+skier_nginx_location: /
+skier_nginx_port: 8080
 skier_config_dir: /etc/skier
 skier_install_dir: /opt/skier
 skier_venv_dir: /opt/skier/venv
