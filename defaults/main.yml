@@ -10,8 +10,14 @@ megserver_proc_user: nobody
 megserver_proc_group: nogroup
 megserver_gcm_api_key: XXX
 megserver_gunicorn_bind_addr: 0.0.0.0:5001
-megserver_version: 0.2.3
+# This is for the development server
+megserver_hostname_url: http://localhost
+megserver_version: 0.5.0
 megserver_nginx_location: /megserver
+
+sendgrid_api_key: XXX
+sendgrid_from_email: noreply@meg.com
+sendgrid_subject: MEG Key Revocation Confirmation
 
 nginx_log_dir: /var/log/nginx
 skier_nginx_location: /
