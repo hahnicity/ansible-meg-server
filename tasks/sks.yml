@@ -3,3 +3,18 @@
   apt: name=sks
   notify:
     - restart sks
+
+- name: build sks
+  command: sks build
+  notify:
+    - restart sks
+
+- name: change ownership of sks files
+  file: path=/var/lib/sks/DB owner=debian-sks group=debian-sks recurse=yes
+  notify:
+    - restart sks
+
+- name: setup /etc/default/sks
+  copy: src=sks dest=/etc/default/sks
+  notify:
+    - restart sks
