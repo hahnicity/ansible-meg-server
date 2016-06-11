@@ -39,6 +39,3 @@ sendgrid:
   api_key: {{ sendgrid_api_key }}
   from_email: {{ sendgrid_from_email }}
   subject: {{ sendgrid_subject }}
-
-keyservers:
-  - http://localhost:{{ skier_nginx_port }}{{ skier_nginx_location }}

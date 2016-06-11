@@ -1,0 +1,5 @@
+
+- name: install sks
+  apt: name=sks
+  notify:
+    - restart sks

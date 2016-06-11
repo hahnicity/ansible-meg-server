@@ -1,8 +1,8 @@
 ---
-- name: install skier
-  include: skier.yml
+- name: install sks
+  include: sks.yml
   tags:
-    - skier
+    - sks
 
 - name: install megserver
   include: megserver.yml

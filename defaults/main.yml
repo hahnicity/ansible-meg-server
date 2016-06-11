@@ -12,7 +12,7 @@ megserver_gcm_api_key: XXX
 megserver_gunicorn_bind_addr: 0.0.0.0:5001
 # This is for the development server
 megserver_hostname_url: http://localhost
-megserver_version: 0.5.0
+megserver_version: 0.6.0
 megserver_nginx_location: /megserver
 
 sendgrid_api_key: XXX
@@ -20,15 +20,3 @@ sendgrid_from_email: noreply@meg.com
 sendgrid_subject: MEG Key Revocation Confirmation
 
 nginx_log_dir: /var/log/nginx
-skier_nginx_location: /
-skier_nginx_port: 8080
-skier_config_dir: /etc/skier
-skier_install_dir: /opt/skier
-skier_venv_dir: /opt/skier/venv
-skier_log_dir: /var/log/skier
-skier_gunicorn_bind_addr: 0.0.0.0:5000
-skier_gunicorn_is_daemon: False
-skier_proc_user: nobody
-skier_proc_group: nogroup
-# Point to the latest commit on master that I can vouch for
-skier_version: 6efd41106286741f504bbbb45e85d3fadc394e60
