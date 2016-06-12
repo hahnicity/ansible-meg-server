@@ -6,7 +6,7 @@ galaxy_info:
   license: GPL
   min_ansible_version: 1.9
   platforms:
-    - name: CentOS
+    - name: EL
       versions:
         - all
     - name: Ubuntu
