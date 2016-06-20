@@ -17,5 +17,4 @@ galaxy_info:
 
 dependencies:
   - { role: ANXS.postgresql }
-  - { role: DavidWittman.redis }
   - { role: ANXS.nginx }
