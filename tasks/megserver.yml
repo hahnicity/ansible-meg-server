@@ -26,9 +26,6 @@
     - restart megserver
     - restart celery
 
-- name: Install psycopg2
-  pip: name=psycopg2
-
 - name: Create postgres db user for megserver
   postgresql_user:
     name=meg
