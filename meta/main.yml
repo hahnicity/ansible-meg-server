@@ -17,4 +17,4 @@ galaxy_info:
 
 dependencies:
   - { role: ANXS.postgresql }
-  - { role: ANXS.nginx }
+  - { role: jdauphant.nginx }
